@@ -76,7 +76,7 @@ export default function DoctorAppDemo() {
   };
 
   return (
-    <div className="w-full bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row h-[780px]" id="doctor-app-root">
+    <div className="w-full bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row h-195" id="doctor-app-root">
       
       {/* Sidebar explanation panel */}
       <div className="w-full md:w-80 bg-slate-950 p-5 border-b md:border-b-0 md:border-r border-slate-800 flex flex-col gap-5 justify-between">
@@ -149,7 +149,7 @@ export default function DoctorAppDemo() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-cyan-500/5 blur-3xl" />
 
         {/* Outer phone container layout */}
-        <div className="w-[340px] h-[680px] bg-slate-950 rounded-[40px] border-4 border-slate-800 shadow-2xl overflow-hidden flex flex-col relative z-10 ring-12 ring-slate-900">
+        <div className="w-85 h-170 bg-slate-950 rounded-[40px] border-4 border-slate-800 shadow-2xl overflow-hidden flex flex-col relative z-10 ring-12 ring-slate-900">
           
           {/* Speaker, camera notch */}
           <div className="w-full h-6 bg-slate-950 flex items-center justify-center relative">

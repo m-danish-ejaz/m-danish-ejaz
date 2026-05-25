@@ -99,7 +99,7 @@ export default function PhishingDemo() {
   };
 
   return (
-    <div className="w-full bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row h-[780px]" id="phishing-root">
+    <div className="w-full bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row h-195" id="phishing-root">
       
       {/* Intro info sidebar */}
       <div className="w-full md:w-80 bg-slate-950 p-5 border-b md:border-b-0 md:border-r border-slate-800 flex flex-col gap-5 justify-between">
@@ -193,7 +193,7 @@ export default function PhishingDemo() {
 
         {/* Prediction Results Display */}
         {isScanning && (
-          <div id="phishing-scanner-loading" className="flex-1 min-h-[300px] flex flex-col items-center justify-center text-slate-400 gap-4">
+          <div id="phishing-scanner-loading" className="flex-1 min-h-75 flex flex-col items-center justify-center text-slate-400 gap-4">
             <div className="relative">
               <div className="animate-ping absolute -inset-0.5 rounded-full bg-rose-500/10" />
               <div className="h-12 w-12 rounded-full border-2 border-t-rose-500 border-slate-800 animate-spin" />

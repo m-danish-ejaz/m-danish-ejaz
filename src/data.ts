@@ -5,7 +5,7 @@ export const PERSONAL_INFO = {
   title: "Software Engineer",
   subtitle: "Frontend-Focused Full-Stack Developer",
   location: "Wah Cantt, Pakistan",
-  emails: ["danishejaz@duck.com", "mdanishejaz@outlook.com"],
+  emails: ["mdanishejaz@outlook.com"],
   phone: "+92 302 8933706",
   github: "https://github.com/Anonymous-codes512",
   linkedin: "https://linkedin.com/in/danish-ejaz512",
@@ -50,11 +50,11 @@ export const WORK_EXPERIENCE: Experience[] = [
     description: [
       "Work primarily on a React-based frontend and a Django-backed web platform, contributing to both client-side and server-side development.",
       "Implement responsive user interfaces, integrate complex rest APIs, resolve UX/UI anomalies, and ensure fluid component-level rendering.",
-      "Assist in crafting minimal and resilient REST APIs in Django, debugging server architecture, and refining relational database interactions.",
+      "Building, modifying, and reviewing REST APIs in Django, debugging backend architecture, and structuring relational database interactions.",
       "Contribute directly to Costwise, an enterprise-level SaaS multi-tenant finance platform, building complex widgets, Ag-Grid pivots, and secure isolation filters.",
       "Actively participate in code reviews, troubleshooting critical issues across the stack, and maintaining strict clean architecture standards."
     ],
-    technologies: ["React", "TypeScript", "Django", "PostgreSQL", "AG Grid", "Tailwind CSS", "REST APIs", "Debugging"]
+    technologies: ["React", "TypeScript", "Django", "MSSQL", "AG Grid", "AG Chart", "Tailwind CSS", "REST APIs", "Debugging"]
   },
   {
     role: "Software Developer",
@@ -72,7 +72,7 @@ export const WORK_EXPERIENCE: Experience[] = [
   {
     role: "Web Developer",
     company: "Tachyon Technologies",
-    period: "Apr 2024 - Apr 2025",
+    period: "Apr 2024 - Mar 2025",
     location: "Wah Cantt, Pakistan",
     description: [
       "Engineered and maintained robust Laravel-based web applications focused on intricate backend operations and responsive UI views.",
@@ -168,7 +168,7 @@ export const PROJECTS: Project[] = [
     id: "costwise",
     title: "Costwise",
     platform: "International Finance Management Platform",
-    technologies: ["React", "Next.js", "TypeScript", "Ag-Grid", "REST APIs", "PostgreSQL", "MFA"],
+    technologies: ["React", "Next.js", "TypeScript", "Ag-Grid", "REST APIs", "Django", "MSSQL", "MFA"],
     description: "A large-scale multi-tenant SaaS platform designed for complex enterprise infrastructures such as hospital management and financial management systems.",
     fullDescription: "This project is a large-scale multi-tenant SaaS platform designed for complex enterprise infrastructures such as hospital management and financial management systems. The platform uses a database-per-tenant architecture with centralized tenant resolution and runtime database switching to ensure secure data isolation across organizations. It includes a powerful reporting center supporting dynamic SQL, stored procedures, and database views with fully server-side search, sorting, filtering, pagination, and streaming-based Excel exports for large datasets. The system also provides configurable dashboard and analytics modules with widget-based layouts, drill-down/drill-through reporting, and pivot functionalities using AG Grid. A scalable data center module was implemented to support multi-million row Excel uploads through streaming, staging tables, validation workflows, and failure recovery tracking. Additional enterprise features include admin-controlled SMTP and Microsoft Graph email configurations, session timeout management, multi-factor authentication (MFA), and advanced AG Grid-based CRUD operations with server-side rendering and pivot support across the application.",
     keyFeatures: [
@@ -179,6 +179,7 @@ export const PROJECTS: Project[] = [
       "SMTP & Microsoft Graph automated e-mail setups, session guards, and multi-factor authentication (MFA)"
     ],
     period: "Aug 2025 - Present",
+    link: "https://costwise-dev-v2.ampham.com",
     category: "Enterprise"
   },
   {
@@ -202,7 +203,7 @@ export const PROJECTS: Project[] = [
     id: "disruptive-duck",
     title: "Disruptive Duck",
     platform: "AI Accessibility Platform",
-    technologies: ["React", "TypeScript", "Speech Synthesis", "JSON APIs", "Accessibility"],
+    technologies: ["React", "TypeScript", "Node.js", "JSON APIs", "Accessibility"],
     description: "An AI-powered web accessibility platform designed to ease and enrich experience for web users with visual or physical challenges.",
     keyFeatures: [
       "WCAG 3.0 level accessibility configurations (font enlarger, contrast controls, voice read)",
@@ -217,7 +218,7 @@ export const PROJECTS: Project[] = [
     id: "debtris",
     title: "Debtris",
     platform: "Debt Management Web Application",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Local Storage", "Components Arch"],
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Nestjs", "Components Arch"],
     description: "A modern, developer-crafted tracker designed to help individual users chart, structure, and strategize debt repayments.",
     keyFeatures: [
       "Aesthetic debt breakdown widgets (Snowball / Avalanche payment simulations)",
@@ -289,10 +290,10 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "crust-house",
-    title: "Crust House Storefront",
-    platform: "Complete Bakery CRM & Retail Engine",
+    title: "Crust House POS",
+    platform: "Complete Hotel CRM & Retail Engine",
     technologies: ["Laravel", "PHP", "JavaScript", "MySQL", "Inventory Triggers"],
-    description: "Comprehensive storefront inventory control and live sales metrics center tailored for a local retail baker.",
+    description: "Comprehensive POS inventory control and live sales metrics center tailored for a local hotel.",
     keyFeatures: [
       "Point-of-Sale (POS) dynamic billing terminal tracking live stock deallocations",
       "Automated prompt notification alerts when key baking ingredients slip below threshold counts",

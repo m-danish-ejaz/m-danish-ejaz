@@ -5,9 +5,9 @@ export default function Certifications() {
   return (
     <section className="py-16 md:py-24 border-t border-white/5" id="certifications-section">
       <div className="space-y-4 mb-10 md:mb-16">
-        <div className="text-emerald-400 font-mono text-[10px] uppercase tracking-[0.3em] font-bold">Industry Recognition</div>
-        <h2 className="text-3xl md:text-5xl font-light text-white tracking-tight leading-tight">
-          Honours & <span className="italic font-serif text-emerald-400 font-medium">Certifications</span>
+        <div className="text-emerald-400 font-mono text-sm uppercase tracking-[0.3em] font-bold">Industry Recognition</div>
+        <h2 className="text-3xl md:text-5xl font-semibold text-white tracking-tight leading-tight">
+          Honours & <span className="italic font-mono text-emerald-400 font-medium">Certifications</span>
         </h2>
         <p className="text-sm md:text-base text-zinc-300 max-w-2xl leading-relaxed">
           Complementary technical education issued by IBM Security team, University of Michigan, and Microsoft platforms.

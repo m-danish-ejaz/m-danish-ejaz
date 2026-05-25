@@ -10,11 +10,12 @@ import PhishingDemo from "./components/PhishingDemo";
 import Certifications from "./components/Certifications";
 import Contact from "./components/Contact";
 import ResumeModal from "./components/ResumeModal";
+import InteractiveBackground from "./components/InteractiveBackground";
 import { PERSONAL_INFO } from "./data";
-import { 
-  Github, 
-  Linkedin, 
-  Mail, 
+import {
+  Github,
+  Linkedin,
+  Mail,
   Code,
   Sparkles,
   LayoutGrid
@@ -28,12 +29,25 @@ export default function App() {
   const scrollToSection = (sectionId: string) => {
     const el = document.getElementById(sectionId);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      const headerOffset = 90;
+      const elementPosition = el.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
       setActiveSection(sectionId);
     }
   };
 
-  // Keep active section in-sync with scroll frame
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollPos = window.scrollY + 200;
@@ -65,20 +79,22 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#050505] text-[#d4d4d8] font-sans selection:bg-emerald-500/20 selection:text-emerald-300">
-      
+    <div className="min-h-screen bg-[#1d1d1d] text-[#d4d4d8] font-sans selection:bg-emerald-500/20 selection:text-emerald-300 relative overflow-hidden">
+
+      {/* Dynamic Ambient Constellation Coordinate Plane */}
+      <InteractiveBackground />
+
       {/* Structural Navigation bar */}
-      <Navigation 
+      <Navigation
         activeSection={activeSection}
         onNavigateToSection={scrollToSection}
         onDownloadResume={() => setShowResumeModal(true)}
       />
 
       {/* Main Container core frame */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 md:space-y-24">
-        
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 md:space-y-24 pt-24">
         {/* Profile Introduction */}
-        <About 
+        <About
           onNavigateToSection={scrollToSection}
           onDownloadResume={() => setShowResumeModal(true)}
         />
@@ -94,14 +110,14 @@ export default function App() {
 
         {/* Interactive Playgrounds Lab Area */}
         <section className="py-16 md:py-24 border-t border-white/5" id="playgrounds-panel">
-          
+
           <div className="space-y-4 mb-8 md:mb-12">
-            <div className="text-emerald-400 font-mono text-[10px] uppercase tracking-[0.3em] font-bold">Interactive Sandbox Labs</div>
-            <h2 className="text-3xl md:text-5xl font-light text-white tracking-tight leading-tight">
-              Live Dev <span className="italic font-serif text-emerald-400">Playgrounds</span>
+            <div className="text-emerald-400 font-mono text-sm uppercase tracking-[0.3em] font-bold">Interactive Sandbox Labs</div>
+            <h2 className="text-3xl md:text-5xl font-semibold text-white tracking-tight leading-tight">
+              Live Dev <span className="italic font-mono text-emerald-400">Playgrounds</span>
             </h2>
-            <p className="text-sm md:text-base text-zinc-300 max-w-2xl leading-relaxed">
-              Skip static lists — test Danish's architectural systems directly inside live client-side emulators built specifically to demonstrate real-world scenarios.
+            <p className="text-sm md:text-base text-zinc-300 max-w-3xl leading-relaxed">
+              Explore interactive client-side emulators built to demonstrate core engineering workflows. Please note that these playgrounds are simplified conceptual simulations; actual production systems may differ in design, user interface, and implementation details.
             </p>
           </div>
 
@@ -109,31 +125,28 @@ export default function App() {
           <div className="flex bg-zinc-950/80 p-1.5 rounded-full border border-white/5 max-w-md mb-8 select-none">
             <button
               onClick={() => setActiveSandbox("costwise")}
-              className={`flex-1 py-2 text-[10px] font-sans font-semibold uppercase tracking-wider rounded-full transition-all border ${
-                activeSandbox === "costwise"
-                  ? "bg-emerald-500/15 border-emerald-500/25 text-emerald-300 shadow"
-                  : "border-transparent text-zinc-500 hover:text-zinc-350"
-              }`}
+              className={`flex-1 py-2 text-xs font-sans cursor-pointer font-semibold uppercase tracking-wider rounded-full transition-all border ${activeSandbox === "costwise"
+                ? "bg-emerald-500/15 border-emerald-500/25 text-emerald-300 shadow"
+                : "border-transparent text-zinc-500 hover:text-zinc-350"
+                }`}
             >
               Costwise SaaS
             </button>
             <button
               onClick={() => setActiveSandbox("doctor")}
-              className={`flex-1 py-2 text-[10px] font-sans font-semibold uppercase tracking-wider rounded-full transition-all border ${
-                activeSandbox === "doctor"
-                  ? "bg-cyan-500/15 border-cyan-500/25 text-cyan-300 shadow"
-                  : "border-transparent text-zinc-500 hover:text-zinc-350"
-              }`}
+              className={`flex-1 py-2 text-xs font-sans cursor-pointer font-semibold uppercase tracking-wider rounded-full transition-all border ${activeSandbox === "doctor"
+                ? "bg-cyan-500/15 border-cyan-500/25 text-cyan-300 shadow"
+                : "border-transparent text-zinc-500 hover:text-zinc-350"
+                }`}
             >
               Doctor App
             </button>
             <button
               onClick={() => setActiveSandbox("phishing")}
-              className={`flex-1 py-2 text-[10px] font-sans font-semibold uppercase tracking-wider rounded-full transition-all border ${
-                activeSandbox === "phishing"
-                  ? "bg-rose-500/15 border-rose-500/25 text-rose-300 shadow"
-                  : "border-transparent text-zinc-500 hover:text-zinc-350"
-              }`}
+              className={`flex-1 py-2 text-xs font-sans cursor-pointer font-semibold uppercase tracking-wider rounded-full transition-all border ${activeSandbox === "phishing"
+                ? "bg-rose-500/15 border-rose-500/25 text-rose-300 shadow"
+                : "border-transparent text-zinc-500 hover:text-zinc-350"
+                }`}
             >
               Phishing ML
             </button>
@@ -141,10 +154,10 @@ export default function App() {
 
           {/* Render Active Sandbox Container */}
           <div className="space-y-2">
-            
+
             {activeSandbox === "costwise" && (
               <div id="costwise-demo-panel" className="animate-fade-in">
-                <div className="p-3 bg-emerald-500/5 text-emerald-300 font-mono text-[10px] rounded-xl border border-white/5 mb-4 flex items-center gap-2">
+                <div className="p-3 bg-emerald-500/5 text-emerald-300 font-mono text-xs rounded-xl border border-white/5 mb-4 flex items-center gap-2">
                   <Sparkles className="w-3.5 h-3.5 animate-pulse text-emerald-400" />
                   <span>Costwise Hub: Simulating isolated tenant resolution schemas & streaming upload pipelines.</span>
                 </div>
@@ -154,7 +167,7 @@ export default function App() {
 
             {activeSandbox === "doctor" && (
               <div id="doctor-demo-panel" className="animate-fade-in">
-                <div className="p-3 bg-cyan-500/5 text-cyan-300 font-mono text-[10px] rounded-xl border border-white/5 mb-4 flex items-center gap-2">
+                <div className="p-3 bg-cyan-500/5 text-cyan-300 font-mono text-xs rounded-xl border border-white/5 mb-4 flex items-center gap-2">
                   <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
                   <span>HealSync Mobile: Testing dual doctor-patient roles, live chats, & vocal dictation streams.</span>
                 </div>
@@ -164,7 +177,7 @@ export default function App() {
 
             {activeSandbox === "phishing" && (
               <div id="phishing-demo-panel" className="animate-fade-in">
-                <div className="p-3 bg-rose-500/5 text-rose-300 font-mono text-[10px] rounded-xl border border-white/5 mb-4 flex items-center gap-2">
+                <div className="p-3 bg-rose-500/5 text-rose-300 font-mono text-xs rounded-xl border border-white/5 mb-4 flex items-center gap-2">
                   <Sparkles className="w-3.5 h-3.5 text-rose-400" />
                   <span>Phishing Analyser: Evaluating SSL encryption, subdomain depths, & ML token weights in real time.</span>
                 </div>
@@ -188,11 +201,11 @@ export default function App() {
       <footer className="border-t border-white/5 bg-zinc-950/25 py-12 mt-24 text-[10px] font-mono text-zinc-500 tracking-wider">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-gradient-to-br from-emerald-400 to-teal-600 rounded-lg flex items-center justify-center text-white italic font-serif font-bold text-sm">
+            <div className="w-8 h-8 bg-linear-to-br from-emerald-400 to-teal-600 rounded-lg flex items-center justify-center text-white italic font-serif font-bold text-sm">
               D
             </div>
             <div>
-              <div className="text-zinc-350 font-bold uppercase tracking-[0.1em]">Danish Ejaz</div>
+              <div className="text-zinc-350 font-bold uppercase tracking-widest">Danish Ejaz</div>
               <div className="text-[8px] text-zinc-500 mt-0.5 tracking-widest font-medium uppercase">Clean Code Practices Verified</div>
             </div>
           </div>

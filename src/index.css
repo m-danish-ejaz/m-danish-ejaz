@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;650;700&family=Playfair+Display:ital,wght@1,400;1,500&family=Fira+Code:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&family=Nova+Square&display=swap');
 @import "tailwindcss";
 
 @theme {
   --color-slate-850: #0f172a;
-  --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Playfair Display", Georgia, serif;
-  --font-mono: "Fira Code", ui-monospace, monospace;
+  --font-sans: "Roboto Slab", serif;
+  --font-serif: "Roboto Slab", serif;
+  --font-mono: "Nova Square", sans-serif;
 }
 
 @utility animate-fade-in {

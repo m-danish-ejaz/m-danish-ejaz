@@ -265,7 +265,7 @@ export default function CostwiseDemo() {
     });
 
   return (
-    <div className="w-full bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row h-[780px]" id="costwise-sandbox-root">
+    <div className="w-full bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row h-195" id="costwise-sandbox-root">
       
       {/* Sandbox Controller Sidebar */}
       <div className="w-full md:w-80 bg-slate-950 p-4 border-b md:border-b-0 md:border-r border-slate-800 flex flex-col gap-5 overflow-y-auto">
@@ -315,7 +315,7 @@ export default function CostwiseDemo() {
         </div>
 
         {/* Tenant Swapping Telemetry Logs */}
-        <div className="flex-1 flex flex-col min-h-[140px] bg-slate-900 border border-slate-800 rounded-xl p-3 font-mono text-[10px] leading-relaxed text-slate-400 relative">
+        <div className="flex-1 flex flex-col min-h-35 bg-slate-900 border border-slate-800 rounded-xl p-3 font-mono text-[10px] leading-relaxed text-slate-400 relative">
           <div className="text-slate-500 font-bold uppercase tracking-wider mb-1.5 flex items-center justify-between border-b border-slate-800 pb-1">
             <span>Dynamic Router Logs</span>
             <div className="flex items-center gap-1">
@@ -323,7 +323,7 @@ export default function CostwiseDemo() {
               <span className="text-[9px] lowercase font-medium">{isSwapping ? "resolving" : "ready"}</span>
             </div>
           </div>
-          <div className="flex-1 overflow-y-auto space-y-1 pr-1 max-h-[110px]">
+          <div className="flex-1 overflow-y-auto space-y-1 pr-1 max-h-27.5">
             {swapLogs.length === 0 ? (
               <span className="text-slate-600 block">System idle. Select a tenant above to execute runtime DB resolutions.</span>
             ) : (
@@ -470,7 +470,7 @@ export default function CostwiseDemo() {
                   <span className="font-mono text-xs">Switching schemas. Re-fetching server dataset...</span>
                 </div>
               ) : (
-                <div className="w-full min-w-[500px] border border-slate-800 rounded-xl overflow-hidden shadow-inner">
+                <div className="w-full min-w-125 border border-slate-800 rounded-xl overflow-hidden shadow-inner">
                   
                   {/* Table headers with sort controls */}
                   <div className="grid grid-cols-12 bg-slate-950 font-mono text-[10px] text-slate-400 border-b border-slate-800 uppercase tracking-wider select-none">
