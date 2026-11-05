@@ -1,157 +1,120 @@
-# Danish Ejaz — Developer Portfolio
+<h1 align="center">Danish Ejaz</h1>
+<h3 align="center">Full-Stack Software Engineer | React, TypeScript, Django & SQL Server</h3>
 
-A single-page, dark-themed developer portfolio built with **React 19**, **TypeScript**, **Vite** and **Tailwind CSS v4**. It presents my experience, skills, projects and certifications, and includes three interactive "playgrounds" that simulate core workflows from projects I have built (a multi-tenant finance platform, a doctor consultation app and an ML phishing detector).
+<p align="center">
+  <a href="mailto:mdanishejaz@outlook.com"><img src="https://img.shields.io/badge/Email-mdanishejaz@outlook.com-1F4E79?style=flat&logo=microsoftoutlook&logoColor=white" alt="Email"></a>
+  <a href="https://linkedin.com/in/danish-ejaz512"><img src="https://img.shields.io/badge/LinkedIn-danish--ejaz512-0A66C2?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
+  <a href="https://github.com/m-danish-ejaz"><img src="https://img.shields.io/badge/GitHub-m--danish--ejaz-181717?style=flat&logo=github&logoColor=white" alt="GitHub"></a>
+</p>
 
-> The playgrounds are simplified, client-side conceptual simulations. Real production systems differ in design, UI and implementation.
-
----
-
-## Features
-
-- **Single-page layout with smooth scrolling** — fixed navigation with scroll-spy that highlights the active section (About, Experience, Skills, Portfolio, Playgrounds, Certifications, Contact).
-- **Interactive particle background** — a canvas-based constellation effect with depth layers that reacts to the mouse.
-- **Experience timeline and skill categories** — rendered from structured data, so content is edited in one place.
-- **Project showcase** — nine projects with category tags (Enterprise, AI/ML, Mobile, Web), technology badges, key features, and GitHub or live links.
-- **Live Dev Playgrounds** — three tabbed, in-browser simulations:
-  - **Costwise SaaS** — isolated tenant resolution (schema switching) and streaming upload pipelines.
-  - **Doctor App** — dual doctor/patient roles, live chat and voice dictation flow.
-  - **Phishing ML** — URL analysis covering SSL, subdomain depth and token weights.
-- **Printable CV** — a resume modal that uses the browser print dialog (`window.print()`) with print-specific styles to "Save as PDF".
-- **Contact section** — contact details and a contact form UI (see the note under [Known Limitations](#known-limitations)).
-- **Animations** — fade/scale transitions via Tailwind utilities and the `motion` library.
-
-## Tech Stack
-
-| Area | Technology |
-| --- | --- |
-| UI | React 19, TypeScript 5.8 |
-| Build tool | Vite 6 with `@vitejs/plugin-react` |
-| Styling | Tailwind CSS 4 (`@tailwindcss/vite`), custom CSS animations and print rules |
-| Icons / motion | `lucide-react`, `motion` |
-| Fonts | Roboto Slab, Nova Square (Google Fonts) |
-
-## Project Structure
-
-```
-.
-├── index.html              # Vite HTML entry
-├── metadata.json           # App metadata (name, description)
-├── package.json
-├── tsconfig.json
-├── vite.config.ts          # React + Tailwind plugins, "@" path alias
-└── src
-    ├── main.tsx            # React root
-    ├── App.tsx             # Page composition, scroll-spy, sandbox tabs
-    ├── data.ts             # All portfolio content (info, skills, jobs, projects, certs)
-    ├── types.ts            # Project, Experience, Education, Certification types
-    ├── index.css           # Tailwind import, theme fonts, animations, print styles
-    └── components
-        ├── Navigation.tsx          # Fixed header + mobile menu + resume button
-        ├── About.tsx               # Intro / profile section
-        ├── Experience.tsx          # Work experience timeline
-        ├── Skills.tsx              # Skill categories
-        ├── Projects.tsx            # Filterable project cards
-        ├── CostwiseDemo.tsx        # Multi-tenant SaaS playground
-        ├── DoctorAppDemo.tsx       # Doctor consultation playground
-        ├── PhishingDemo.tsx        # Phishing URL analyser playground
-        ├── Certifications.tsx      # Certificates list
-        ├── Contact.tsx             # Contact info + form
-        ├── ResumeModal.tsx         # Printable CV modal
-        └── InteractiveBackground.tsx  # Canvas particle background
-```
-
-## Getting Started
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org/) 18 or newer
-- npm
-
-### Installation
-
-```bash
-git clone https://github.com/m-danish-ejaz/m-danish-ejaz.git
-cd m-danish-ejaz
-npm install
-```
-
-### Run in development
-
-```bash
-npm run dev
-```
-
-The dev server runs at <http://localhost:3000> (bound to `0.0.0.0`, so it is also reachable on your local network).
-
-### Other scripts
-
-| Command | Description |
-| --- | --- |
-| `npm run dev` | Start the Vite dev server on port 3000 |
-| `npm run build` | Create a production build in `dist/` |
-| `npm run preview` | Preview the production build locally |
-| `npm run lint` | Type-check with `tsc --noEmit` |
-| `npm run clean` | Remove `dist` and `server.js` (uses `rm -rf`; on Windows use Git Bash or WSL) |
-
-## Customizing the Content
-
-Almost everything shown on the site lives in [`src/data.ts`](src/data.ts):
-
-| Export | What it controls |
-| --- | --- |
-| `PERSONAL_INFO` | Name, title, location, email, phone, GitHub / LinkedIn / WhatsApp, about text |
-| `SKILL_CATEGORIES` | Skills section groups |
-| `WORK_EXPERIENCE` | Experience timeline |
-| `EDUCATION` | Education entries (shown in the printable CV) |
-| `CERTIFICATIONS` | Certifications list |
-| `PROJECTS` | Portfolio cards (title, technologies, features, links, category) |
-
-To add a project, append an object to `PROJECTS` that follows the `Project` interface in [`src/types.ts`](src/types.ts):
-
-```ts
-{
-  id: "my-project",
-  title: "My Project",
-  platform: "Web Application",
-  technologies: ["React", "TypeScript"],
-  description: "One-line summary.",
-  keyFeatures: ["Feature one", "Feature two"],
-  period: "Jan 2026 - Present",
-  github: "https://github.com/<user>/<repo>",
-  category: "Web" // "Enterprise" | "AI/ML" | "Mobile" | "Web"
-}
-```
-
-Theme colours and fonts are defined in [`src/index.css`](src/index.css) (`@theme` block) and in Tailwind classes inside each component.
-
-## Printable CV
-
-Click the resume button in the navigation to open the CV modal, then choose **Send to PDF (System Printer)**. The modal triggers the browser print dialog, and `@media print` rules in `index.css` switch the layout to a white, paper-style page. Choose **Save as PDF** as the destination.
-
-## Deployment
-
-The project is a static Vite app:
-
-```bash
-npm run build
-```
-
-Upload the generated `dist/` folder to any static host (Vercel, Netlify, GitHub Pages, Cloudflare Pages). For GitHub Pages under a sub-path, set `base` in `vite.config.ts` to your repository name.
-
-## Known Limitations
-
-- The **contact form is a front-end simulation**: submitting it shows a success state after a short delay and keeps the message in local component state only. To receive real messages, connect it to a service such as Formspree, EmailJS or your own API.
-- The **playgrounds are simulations** and do not call real backends or ML models.
-- `package.json` still lists `@google/genai`, `express` and `dotenv` (left over from the Google AI Studio scaffold). They are not used by the code in `src/` and can be removed.
-- `Contact.tsx` references a second email (`PERSONAL_INFO.emails[1]`) while `data.ts` defines only one, so add a second address or remove that line.
-- `index.html` still has the default title "My Google AI Studio App"; change it to something like "Danish Ejaz — Software Engineer".
-
-## Contact
-
-- **Email:** mdanishejaz@outlook.com
-- **LinkedIn:** [linkedin.com/in/danish-ejaz512](https://linkedin.com/in/danish-ejaz512)
-- **GitHub:** [github.com/m-danish-ejaz](https://github.com/m-danish-ejaz)
+<p align="center">📍 Wah Cantt, Pakistan &nbsp;•&nbsp; 📞 +92 302 8933706</p>
 
 ---
 
-© Danish Ejaz. All rights reserved.
+## 👋 About Me
+
+Software Engineer with **2+ years** of experience building multi-tenant SaaS platforms and API-driven web and mobile applications. Strong in **React**, **TypeScript** and **Redux Toolkit** on the front end, backed by hands-on **Django** and **SQL Server** work on the back end. I build complex data-driven interfaces, reporting engines, dashboards and large-dataset grids for an international finance platform, and I enjoy working with UX, backend and product teams in international, Agile environments.
+
+---
+
+## 🛠️ Technical Skills
+
+| Area | Technologies |
+| --- | --- |
+| **Frontend** | React, Next.js, TypeScript, JavaScript (ES6+), Redux / Redux Toolkit, React Router, Ag-Grid, HTML5, CSS3/SCSS, Bootstrap |
+| **Backend & APIs** | Django, Django REST Framework, Flask, Laravel, REST APIs, SOAP APIs, JWT Authentication |
+| **Databases** | SQL Server (stored procedures, dynamic SQL), PostgreSQL, MySQL |
+| **Architecture** | Multi-Tenant SaaS, Component-Based Design, System Design, Background Job Processing, Streaming APIs |
+| **Mobile** | Flutter, Dart |
+| **Tools & Practices** | Git, Agile/Scrum, Code Reviews, Clean Code, Accessibility, Responsive Design |
+
+---
+
+## 💼 Professional Experience
+
+### Full-Stack Developer — Infyntrix
+*Aug 2025 – Present · Wah Cantt, Pakistan*
+
+- **Multi-tenant architecture:** Helped build an enterprise platform serving multiple client organizations from a single React/TypeScript and Django codebase; implemented JWT-claims-based dynamic database routing so each request resolves to the correct per-company SQL Server connection.
+- **Report Center:** Led front-end development of a Redux Toolkit-driven, multi-step report-designer wizard (data source → parameters → output schema → preview) and partnered with backend on a metadata-driven execution engine binding UI filters to stored procedures and dynamic SQL, with server-side pagination for large result sets.
+- **Dashboard Center:** Implemented single-call bundle fetching for dashboards, canvases and widgets to cut redundant API calls, and normalized stored filter metadata into runtime UI state.
+- **Regulatory submission module:** Delivered an end-to-end data-submission flow with synchronous ZIP/XML export and an asynchronous background-job flow featuring resilient status polling and cancellation; coordinated with threaded backend job processing and table-valued-parameter SQL for high-volume XML generation.
+- **API layer & backend:** Built a centralized API layer with auth-token handling, automatic session refresh and consistent error handling; developed REST and SOAP APIs, stored procedures and dynamic SQL for large-scale data I/O and streaming file responses.
+- Participated in code reviews and helped maintain frontend code quality and consistency.
+
+`React` `TypeScript` `Redux Toolkit` `Django` `SQL Server` `Ag-Grid` `REST` `SOAP` `JWT`
+
+### Software Developer — GOFTech
+*Mar 2025 – Aug 2025 · Islamabad, Pakistan*
+
+- Built React and Flutter applications backed by a Flask/PostgreSQL service for a doctor-consultation platform.
+- Implemented secure authentication and appointment/patient-record REST APIs, designed database schemas and optimized query performance to improve reliability.
+- Built reusable UI components and collaborated with cross-functional teams to ship production-ready features.
+
+`React` `Flutter` `Flask` `PostgreSQL` `REST`
+
+### Web Developer — Tachyon Technologies
+*Apr 2024 – Mar 2025 · Wah Cantt, Pakistan*
+
+- Delivered a Laravel-based retail management system with real-time sales tracking, inventory management and staff scheduling, including interactive dashboards.
+- Integrated third-party APIs, wrote unit tests and worked within Agile sprints alongside designers and backend engineers.
+
+`Laravel` `PHP` `JavaScript` `MySQL`
+
+---
+
+## 🚀 Selected Projects
+
+### CostWise — Multi-Tenant Finance Management Platform
+`React` `TypeScript` `Redux Toolkit` `Ag-Grid` `Django` `SQL Server`
+
+Large-scale international finance platform with a database-per-tenant architecture. My work covers reusable, high-performance data-grid interfaces, the Report Center, the Dashboard Center and the regulatory submission module described above.
+
+### Disruptive Duck — AI Accessibility Platform
+`React` `TypeScript`
+
+Accessible front-end components for an AI-driven platform supporting users with disabilities, with a focus on clarity and inclusive UI design.
+
+### Debtris — Debt Management Web Application *(In Development)*
+`React` `TypeScript`
+
+Scalable, reusable React components using hooks and structured state management for tracking and managing personal debt.
+
+### Doctor Consultation App
+`Flutter` `Flask` `PostgreSQL` — [GitHub](https://github.com/Anonymous-codes512/doctor-app)
+
+Cross-platform app for doctor-patient consultations with role-based access, appointment booking, patient records and in-app chat.
+
+### Other Projects
+
+- **CUI WAH Exam Invigilation System** — ASP.NET Core MVC and Flutter app for attendance and exam scheduling. [GitHub](https://github.com/Anonymous-codes512/Exam_Invagilation_System)
+- **Phishing Link Detector** — Flask service using Random Forest and Gradient Boosting models to classify malicious URLs in real time.
+- **Real-Time Traffic Signal Manager** — Python system using formal methods to reduce intersection collision risk.
+- **TailorBook** — Flutter and Firebase app for tailors to manage orders and measurements and send invoices via WhatsApp. [GitHub](https://github.com/Anonymous-codes512/darizi-app)
+- **Crust House** — Laravel retail system for sales, inventory and staff management. [GitHub](https://github.com/Anonymous-codes512/CrustHouse)
+
+---
+
+## 🎓 Education
+
+**Bachelor of Science in Software Engineering**
+COMSATS University Islamabad, Wah Campus · *Sep 2021 – Jun 2025*
+
+---
+
+## 📜 Certifications & Leadership
+
+- **IBM Cybersecurity** — Operating Systems Security, Cyberattacks & Tools, Cybersecurity Essentials (Coursera, 2025)
+- **Flutter and Dart: Developing iOS, Android and Mobile Apps** — IBM (Coursera, 2025)
+- **Web Development Series** — HTML5, CSS3, JavaScript, University of Michigan (Coursera, 2023)
+- **Team Lead, Code Hub Group** — COMSATS ACM Student Chapter (2022–2023): led peer coding sessions and mentored junior students
+
+---
+
+## 🌐 Languages
+
+**English** — Professional working proficiency · **Urdu** — Native · **German** — A1 (in progress)
+
+---
+
+<p align="center">📫 Open to full-stack and frontend roles — reach me at <a href="mailto:mdanishejaz@outlook.com">mdanishejaz@outlook.com</a></p>
